@@ -13,8 +13,6 @@ Here's what I learned today:
 - There are a bunch of different types of Machine Learning.
 - A general impression of what can (and can't) be achieved using Machine Learning.
 
----
-
 ### Types of Machine Learning
 
 [ To be completed at a later date ]
