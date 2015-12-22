@@ -7,12 +7,14 @@ excerpt: |
   In this first post, I learn the different types of Machine Learning, getting
   an idea in the process of what Machine Learning can and cannot do.
 ---
-# hi there, i'm the first post
 
-{% highlight ruby %}
-def print_hi(name)
-  puts "Hi, #{name}"
-end
-print_hi('Tom')
-#=> prints 'Hi, Tom' to STDOUT.
-{% endhighlight %}
+Here's what I learned today:
+
+- There are a bunch of different types of Machine Learning.
+- A general impression of what can (and can't) be achieved using Machine Learning.
+
+---
+
+### Types of Machine Learning
+
+[ To be completed at a later date ]

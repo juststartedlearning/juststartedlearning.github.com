@@ -17,4 +17,4 @@ twitter_username: yazinsai
 github_username:  yazinsai
 
 # Build settings
-markdown: kramdown
+markdown: redcarpet
