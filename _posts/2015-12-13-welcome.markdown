@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "Ahoy there!"
+title:  "Ahoy there! Start your journey here"
 date:   2015-12-13 10:52:10 +0200
 categories: machine-learning
 ---
@@ -13,13 +13,5 @@ This was it .. I wanted to know more. However, there's a ton of material out the
 I heard that the best way to learn was to teach, so I'll be documenting everything I learn here. If I don't understand something, I'll just say so -- instead of attempting to BS my way through.
 
 So that's it, I hope you'll join me for the journey!
-
-{% highlight ruby %}
-def print_hi(name)
-  puts "Hi, #{name}"
-end
-print_hi('Tom')
-#=> prints 'Hi, Tom' to STDOUT.
-{% endhighlight %}
 
 [tensorflow-homepage]: http://tensorflow.org
