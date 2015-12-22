@@ -22,6 +22,6 @@ In the examples I followed, Andrew took the case of housing prices. His imaginar
 
 There's a couple of important definitions to note here:
 
-1. The price of the house (what we're trying to estimate) is called the **output**, referred to by the symbol $$y$$ (I can now write fancy math symbols, thanks to [Mr.Gaston Sanchez's post](http://gastonsanchez.com/blog/opinion/2014/02/16/Mathjax-with-jekyll.html) )
-2. The inputs that influence the price of the house (or that we think influence it anyway) are called .. well, **inputs**. The symbol for those is $$x$$ (and potentially, $$x1$$, $$x2$$, ...).
-3. Our goal, in a supervised learning scenario is to come up with some sort of relationship (equation, not the other type you silly person) between the input(s) and the output. We'd then be able to use that relationship to predict the $$y$$ from the $$x$$'s.
+1. The price of the house (what we're trying to estimate) is called the **output**, referred to by the symbol \(y\) (I can now write fancy math symbols, thanks to [Mr.Gaston Sanchez's post](http://gastonsanchez.com/blog/opinion/2014/02/16/Mathjax-with-jekyll.html) )
+2. The inputs that influence the price of the house (or that we think influence it anyway) are called .. well, **inputs**. The symbol for those is \(x\) (and potentially, \(x1\), \(x2\), ...).
+3. Our goal, in a supervised learning scenario is to come up with some sort of relationship (equation, not the other type you silly person) between the input(s) and the output. We'd then be able to use that relationship to predict the \(y\) from the \(x\)'s.
