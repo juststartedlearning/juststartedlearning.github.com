@@ -3,6 +3,11 @@ layout: post
 title:  "Ahoy there! Start your journey here"
 date:   2015-12-13 10:52:10 +0200
 categories: machine-learning
+excerpt: |
+  This is an introductory post, where I cover part of the motivation why I'm
+  writing these posts. It also covers the reasons why a computer engineer, with
+  absolutely no Machine Learning background has suddenly decided to give it a
+  go.
 ---
 Well hello. My name's [Yazin](https://twitter.com/yazinsai) and I'm a regular guy just like you. I've dabbled with a bit of code in the past, namely Ruby and PHP, but I wouldn't consider myself an expert.
 

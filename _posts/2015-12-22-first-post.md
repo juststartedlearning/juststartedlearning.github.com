@@ -3,6 +3,9 @@ layout: post
 title:  "First Post!"
 date:   2015-12-22 10:52:10 +0200
 categories: machine-learning
+excerpt: |
+  In this first post, I learn the different types of Machine Learning, getting
+  an idea in the process of what Machine Learning can and cannot do.
 ---
 # hi there, i'm the first post
 
