@@ -34,8 +34,22 @@ This looks kinda similar to an equation I remember from school:
 
 $$y = mx + c \text{ (or } y = c + mx)$$
 
-That's the straight line formula, where \\(m\\) is the gradient/slope, \\(c\\) is the y-intercept and \\(x, y\\) are both coordinates of any point on the line. It's clear, just by comparing the two, that \\(\theta_0 = c\\) (the y-intercept) and \\(\theta_1 = m\\) (the gradient/slope).
+That's the straight line formula, where \\(m\\) is the gradient/slope, \\(c\\) is the y-intercept and \\(x, y\\) are both coordinates of any point on the line. It's clear, just by comparing the two, that \\(\theta_0 = c\\) (the y-intercept) and \\(\theta_1 = m\\) (the gradient/slope). In general, we call these \\(\theta\\) things **parameters** of the hypothesis (so we don't have to call them *theta things* the whole time).
 
 Now, for our purposes, we're not supposed to dig too deep into this just yet. Things get icky pretty quickly when you add multiple \\(x\\)'s, and higher order hypotheses (like quadratic equations, cubic equations, etc.).
 
 Let's not worry about all that just yet .. and focus on getting this darn thing to work with the most basic case first.
+
+### Training data
+Like we said earlier, we'll be given a bunch of training data (which are really just \\((x, y)\\) pairs .. and later asked to predict the value of \\(y\\) when given \\(x\\).
+
+Here's what a sample training data set might look like:
+
+| Size in ft<sup>2</sup> | Price (x $1,000) |
+|---------------|------------------|
+| 2104          | 460              |
+| 1416          | 232              |
+| 1534          | 315              |
+| ...           | ...              |
+
+The total number of rows (or pairs) of training data is called \\(m\\), and we'll be using that a bunch of times in our calculations.
