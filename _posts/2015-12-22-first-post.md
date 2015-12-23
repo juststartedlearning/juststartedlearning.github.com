@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "First Post!"
-date:   2015-12-22 10:52:10 +0200
+date:   2015-12-22 10:52:10 +0400
 categories: machine-learning
 excerpt: |
   In this first post, I learn the different types of Machine Learning, getting

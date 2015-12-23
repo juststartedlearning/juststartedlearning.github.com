@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "Some Basic definitions"
-date:   2015-12-22 20:52:10 +0200
+date:   2015-12-22 20:52:10 +0400
 categories: machine-learning
 excerpt: |
   Today, I learned a bunch of variable definitions that are used quite a bit
@@ -23,5 +23,19 @@ In the examples I followed, Andrew took the case of housing prices. His imaginar
 There's a couple of important definitions to note here:
 
 1. The price of the house (what we're trying to estimate) is called the **output**, referred to by the symbol \(y\) (I can now write fancy math symbols, thanks to [Mr.Gaston Sanchez's post](http://gastonsanchez.com/blog/opinion/2014/02/16/Mathjax-with-jekyll.html) )
-2. The inputs that influence the price of the house (or that we think influence it anyway) are called .. well, **inputs**. The symbol for those is \(x\) (and potentially, \(x1\), \(x2\), ...).
-3. Our goal, in a supervised learning scenario is to come up with some sort of relationship (equation, not the other type you silly person) between the input(s) and the output. We'd then be able to use that relationship to predict the \(y\) from the \(x\)'s.
+2. The inputs that influence the price of the house (or that we think influence it anyway) are called .. well, **inputs**. The symbol for those is \\(x\\) (and potentially, \\(x_1\\), \\(x_2\\), ...).
+3. Our goal, in a supervised learning scenario is to come up with some sort of **relationship** (equation, not that other type you silly person) between the input(s) and the output. We'd then be able to use that relationship to predict the \\(y\\) from the \\(x\\)'s. This relationship is called a hypothesis, and is referenced by the symbol \\(h\\).
+
+Let's talk abit more about point #3 above, about the hypothesis \\(h\\). Essentially, if the relationship is linear (Andrew promises to tell us later how to get the best possible fit, linear or otherwise), then the relationship takes the form of:
+
+$$h = \theta_0 + \theta_1 x$$
+
+This looks kinda similar to an equation I remember from school:
+
+$$y = mx + c \text{ (or } y = c + mx)$$
+
+That's the straight line formula, where \\(m\\) is the gradient/slope, \\(c\\) is the y-intercept and \\(x, y\\) are both coordinates of any point on the line. It's clear, just by comparing the two, that \\(\theta_0 = c\\) (the y-intercept) and \\(\theta_1 = m\\) (the gradient/slope).
+
+Now, for our purposes, we're not supposed to dig too deep into this just yet. Things get icky pretty quickly when you add multiple \\(x\\)'s, and higher order hypotheses (like quadratic equations, cubic equations, etc.).
+
+Let's not worry about all that just yet .. and focus on getting this darn thing to work with the most basic case first.
