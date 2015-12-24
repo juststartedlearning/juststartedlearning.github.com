@@ -53,3 +53,29 @@ Here's what a sample training data set might look like:
 | ...           | ...              |
 
 The total number of rows (or pairs) of training data is called \\(m\\), and we'll be using that a bunch of times in our calculations.
+
+Now, our job, as mentioned earlier is to find a relationship that connects our features (\\(x\\)'s) to our predicted value of \\(y\\).
+
+We've now got a bunch of points, and we're trying to predict the \\(y\\) value given an \\(x\\) .. you can probably already see where this is going .. we need to find the **line of best fit**.
+
+### Finding the line of best fit
+Calculating the line of best fit is pretty easy to do, visually (see my hand-drawn masterpiece below).
+
+![Line of best fit](/assets/line-of-best-fit.png)
+
+When you try to do it in math though, the equations can end up looking pretty scary. The concept however is a simple one.
+
+To get the line of best fit, you first need to define what "fit" means .. in our case, this means calculating some sort of figure that allows you to differentiate a "good" fit from a bad one.
+
+We call this the **cost function**. To find the cost of a particular hypothesis, all you really have to do is calculate how often the hypothesis is able to predict the output correctly. If all the predictions are 100% spot-on, then it has a cost of zero. If the predictions are crap, it'll have a high cost. Bottom line is, *we're trying to optimize for cost -- the lower, the better*.
+
+Here's how we can calculate the cost:
+
+1. For each point in our training dataset, we find the "distance" between the predicted output (i.e. our hypothesis \\(h\\)) and the actual output (\\(y\\)).
+2. We then square this distance, to get rid of weird stuff that happens with negative points (an error is an error, whether the distance is positive or negative).
+3. Once we've added all the points, let's take the square root so we're not dealing with ridiculous figures.
+4. We then take the average of all those figures, so that we can compare errors regardless of the number of data points in the set.
+
+Here's how that looks like mathematically (brace yourselves):
+
+$$J = 1/2m$$
