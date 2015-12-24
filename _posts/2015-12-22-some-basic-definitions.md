@@ -73,9 +73,10 @@ Here's how we can calculate the cost:
 
 1. For each point in our training dataset, we find the "distance" between the predicted output (i.e. our hypothesis \\(h\\)) and the actual output (\\(y\\)).
 2. We then square this distance, to get rid of weird stuff that happens with negative points (an error is an error, whether the distance is positive or negative).
-3. Once we've added all the points, let's take the square root so we're not dealing with ridiculous figures.
-4. We then take the average of all those figures, so that we can compare errors regardless of the number of data points in the set.
+3. Let's now add all of those squares up.
+4. Finally take the average of all those figures, so that we can compare errors across different datasets (regardless of the number of data points in any particular set).
+5. This final step is purely for convenience, and involves multiplying the end result by \\(\frac12\\) .. to make calculations on the derivative "cleaner" (since \\( \frac12 \times 2 = 1 \\))
 
 Here's how that looks like mathematically (brace yourselves):
 
-$$J = 1/2m$$
+$$J = \frac{1}{2m} \sum_{i=1}^m \left( h(x^{(i)}) - y^{(i)} \right)^2$$
