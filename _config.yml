@@ -12,7 +12,7 @@ description: > # this means to ignore newlines until "baseurl:"
   Just started learning is a website where I share my journey of learning,
   starting with a topic that I knew nothing about.. Machine Learning.
 baseurl: "" # the subpath of your site, e.g. /blog
-url: "http://yaz.in" # the base hostname & protocol for your site
+url: "http://juststartedlearning.com" # the base hostname & protocol for your site
 twitter_username: yazinsai
 github_username:  yazinsai
 
