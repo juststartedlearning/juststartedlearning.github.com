@@ -79,4 +79,6 @@ Here's how we can calculate the cost:
 
 Here's how that looks like mathematically (brace yourselves):
 
-$$J = \frac{1}{2m} \sum_{i=1}^m \left( h(x^{(i)}) - y^{(i)} \right)^2$$
+$$J(\theta_0, \theta_1) = \frac{1}{2m} \sum_{i=1}^m \left( h(x^{(i)}) - y^{(i)} \right)^2$$
+
+I'm not entirely sure why the cost function uses the symbol \\(J\\) (I would've personally used the symbol \\(C\\), since you know, it's a Cost function .. but maybe it was already taken or something).
