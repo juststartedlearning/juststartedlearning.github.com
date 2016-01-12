@@ -43,7 +43,57 @@ $$\theta_j := \theta_j - \alpha \frac{\partial}{\partial \theta_j} J(\theta_0, \
 
 Nothing drives a point home like seeing some code, and I really struggled to get my head around this whole vector business until I actually saw it implemented in traditional arrays.
 
-<script src="https://gist.github.com/yazinsai/c898d488cb00413673df.js"></script>
+{% highlight python %}
+# y = theta_1 * x + theta_0
+# Not actually required in the gradient descent calculation; just used to verify
+# the sanity of the results :)
+def compute_error_for_line_given_points(theta_0, theta_1, points):
+  totalError = 0
+  for i in range(0, len(points)):
+      x = points[i, 0]
+      y = points[i, 1]
+      totalError += (y - (theta_1 * x + theta_0)) ** 2
+  return totalError / (2 * float(len(points)))
+
+def step_gradient(theta_0_current, theta_1_current, points, alpha):
+  # Gets called for each iteration of 'alpha'
+  theta_0_gradient = 0
+  theta_1_gradient = 0
+  m = float(len(points))
+  for i in range(0, len(points)):
+    x = points[i, 0]
+    y = points[i, 1]
+    theta_0_gradient += -(1/m) * (y - ((theta_1_current * x) + theta_0_current))
+    theta_1_gradient += -(1/m) * x * (y - ((theta_1_current * x) + theta_0_current))
+  new_theta_0 = theta_0_current - (alpha * theta_0_gradient)
+  new_theta_1 = theta_1_current - (alpha * theta_1_gradient)
+  return [new_theta_0, new_theta_1]
+
+def gradient_descent_runner(points, starting_theta_0, starting_theta_1, alpha, num_iterations):
+  # This method simply runs the 'step_gradient' method num_iterations times,
+  # updating the values of theta_0, theta_1 after each iteration.
+  theta_0 = starting_theta_0
+  theta_1 = starting_theta_1
+  for i in range(num_iterations):
+    theta_0, theta_1 = step_gradient(theta_0, theta_1, array(points), alpha)
+  return [theta_0, theta_1]
+
+def run():
+  # This method reads all of our data points (x, y)'s and calls the
+  # 'gradient_descent_runner' passing in all of the variables
+  points = genfromtxt("data.csv", delimiter=",")
+  alpha = 0.0001
+  initial_theta_0 = 0 # initial y-intercept guess
+  initial_theta_1 = 0 # initial slope guess
+  num_iterations = 1000
+  print "Starting gradient descent at theta_0 = {0}, theta_1 = {1}, error = {2}".format(initial_theta_0, initial_theta_1, compute_error_for_line_given_points(initial_theta_0, initial_theta_1, points))
+  print "Running..."
+  [theta_0, theta_1] = gradient_descent_runner(points, initial_theta_0, initial_theta_1, alpha, num_iterations)
+  print "After {0} iterations theta_0 = {1}, theta_1 = {2}, error = {3}".format(num_iterations, theta_0, theta_1, compute_error_for_line_given_points(theta_0, theta_1, points))
+
+if __name__ == '__main__':
+  run()
+{% endhighlight %}
 
 You'll find the `data.csv` file [here](https://gist.github.com/yazinsai/a962de1d2efcf3aa4986).
 
