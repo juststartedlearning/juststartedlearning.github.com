@@ -57,3 +57,5 @@ Starting gradient descent at theta_0 = 0, theta_1 = 0, error = 2782.55391724
 Running...
 After 1000 iterations theta_0 = 0.0590585566422, theta_1 = 1.47833132745, error = 56.3163353936
 {% endhighlight %}
+
+It took me a while to wrap my head around this, and to get the code to a working state. [Matt Nedrich's post](http://spin.atomicobject.com/2014/06/24/gradient-descent-linear-regression/) on the topic was very helpful.
