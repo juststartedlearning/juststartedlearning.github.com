@@ -101,7 +101,7 @@ You'll find the `data.csv` file [here](https://gist.github.com/yazinsai/a962de1d
 
 Here's what the output looks like:
 
-{% highlight shell %}
+{% highlight bash %}
 > $python gradient_descent_example.py
 Starting gradient descent at theta_0 = 0, theta_1 = 0, error = 2782.55391724
 Running...
