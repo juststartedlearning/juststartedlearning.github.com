@@ -31,13 +31,42 @@ At the core of the gradient descent technique is a very simple idea. If we can t
 
 The only question is: "how do we know which way is downhill?".
 
-Well, that's where your old from high school - derivatives - come in. If you remember one thing about derivatives in school, it's that a derivative is that it's the slope at a given point (if you're completely lost, check out [this excellent introduction to derivates](https://www.khanacademy.org/math/differential-calculus/taking-derivatives/derivative-intro/v/calculus-derivatives-1)).
+Well, that's where your old from high school - derivatives - come in. If you remember one thing about derivatives in school, it's that a derivative is the slope at a given point (if you're completely lost, check out [this excellent introduction to derivates](https://www.khanacademy.org/math/differential-calculus/taking-derivatives/derivative-intro/v/calculus-derivatives-1)).
 
 So all we need to do then is follow the derivative (the slope at a particular point), and it will give us a direction to move towards.
 
 $$\theta_j := \theta_j - \alpha[\text{derivative of J}]$$
 
 $$\theta_j := \theta_j - \alpha \frac{\partial}{\partial \theta_j} J(\theta_0, \theta_1)$$
+
+Substituting for the value of \\(J\\) which we derived in [the previous post]({% post_url 2015-12-22-some-basic-definitions %}) as:
+
+$$J(\theta_0, \theta_1) = \frac{1}{2m} \sum_{i=1}^m \left( h(x^{(i)}) - y^{(i)} \right)^2$$
+
+.. this results in:
+
+$$\theta_j := \theta_j - \alpha \frac{\partial}{\partial \theta_j} \left( \frac{1}{2m} \sum_{i=1}^m \left( h(x^{(i)}) - y^{(i)} \right)^2 \right)$$
+
+Since we have two variables that we're trying to optimize (namely \\(\theta_0)\\) and \\(\theta_1\\)), we have to use what's known in the geeky world of mathematics as *partial derivatives*. While it may sound like I just turned all Math professor on you, it's actually a simple concept.
+
+It's like a normal derivative, where you treat everything as a constant except the variable you are deriving by. If that's not enough by way of introduction, check [this great explanation on the Math StackExchange](http://math.stackexchange.com/questions/70728/partial-derivative-in-gradient-descent-for-two-variables/189792#189792) site.
+
+Ok, so here are the final equations we're looking for (in their simplified form, after rearranging and stuff):
+
+$$
+\begin{align}
+
+\theta_0 & := \theta_0 - \alpha \frac{1}{m} \sum_{i=1}^m \left(\theta_0 + \theta_{1}x^{(i)} - y^{(i)}\right) \\
+
+\theta_1 & := \theta_1 - \alpha \frac{1}{m} \sum_{i=1}^m \left(\theta_0 +
+\theta_{1}x^{(i)} - y^{(i)}\right) x^{(i)}
+
+\end{align}
+$$
+
+She's a real beauty, ain't she?
+
+And this is just one step. We'll be running this calculation many, many times .. as we journey down the hill of cost, to the local minima (sometimes thousands of times even).
 
 ### The code
 
@@ -97,8 +126,6 @@ if __name__ == '__main__':
 
 You'll find the `data.csv` file [here](https://gist.github.com/yazinsai/a962de1d2efcf3aa4986).
 
-**Note: I've used Python in the example above, but going forward most examples will be written using [Octave](http://www.wikiwand.com/en/GNU_Octave).**
-
 Here's what the output looks like:
 
 {% highlight bash %}
@@ -109,3 +136,5 @@ After 1000 iterations theta_0 = 0.0590585566422, theta_1 = 1.47833132745, error 
 {% endhighlight %}
 
 It took me a while to wrap my head around this, and to get the code to a working state. [Matt Nedrich's post](http://spin.atomicobject.com/2014/06/24/gradient-descent-linear-regression/) on the topic was very helpful.
+
+*Note: I've used Python in the example above, but going forward most examples will be written using [Octave](http://www.wikiwand.com/en/GNU_Octave).*
