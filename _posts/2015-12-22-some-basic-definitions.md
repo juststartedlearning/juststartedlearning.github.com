@@ -36,9 +36,11 @@ $$y = mx + c \text{ (or } y = c + mx)$$
 
 That's the straight line formula, where \\(m\\) is the gradient/slope, \\(c\\) is the y-intercept and \\(x, y\\) are both coordinates of any point on the line. It's clear, just by comparing the two, that \\(\theta_0 = c\\) (the y-intercept) and \\(\theta_1 = m\\) (the gradient/slope). In general, we call these \\(\theta\\) things **parameters** of the hypothesis (so we don't have to call them *theta things* the whole time).
 
-Now, for our purposes, we're not supposed to dig too deep into this just yet. Things get icky pretty quickly when you add multiple \\(x\\)'s, and higher order hypotheses (like quadratic equations, cubic equations, etc.).
+The bottom line is this: if we know (or can somehow calculate) what the parameters (\\(\theta_0, \theta_1\\)) are, then we can predict the values of \\(y\\) given \\(x\\).. all without even needing a crystal ball!
 
-Let's not worry about all that just yet .. and focus on getting this darn thing to work with the most basic case first.
+*For our purposes, we're not supposed to dig too deep into this just yet. Things get icky pretty quickly when you add multiple \\(x\\)'s, and higher order hypotheses (like quadratic equations, cubic equations, etc.).*
+
+*Let's not worry about all that just yet .. and focus on getting this darn thing to work with the most basic case first.*
 
 ### Training data
 Like we said earlier, we'll be given a bunch of training data (which are really just \\((x, y)\\) pairs .. and later asked to predict the value of \\(y\\) when given \\(x\\).
