@@ -39,7 +39,11 @@ $$\theta_j := \theta_j - \alpha[\text{derivative of J}]$$
 
 $$\theta_j := \theta_j - \alpha \frac{\partial}{\partial \theta_j} J(\theta_0, \theta_1)$$
 
-Substituting for the value of \\(J\\) which we derived in [the previous post]({% post_url 2015-12-22-some-basic-definitions %}) as:
+### Gradient Descent for Linear Regression
+
+Assuming we've only got one \\(x\\) and one \\(y\\) (carrying on the example from the last post), we can start substituting equations in to really drive this point home.
+
+Let's start by substituting for the value of \\(J\\) which we derived in [the previous post]({% post_url 2015-12-22-some-basic-definitions %}) as:
 
 $$J(\theta_0, \theta_1) = \frac{1}{2m} \sum_{i=1}^m \left( h(x^{(i)}) - y^{(i)} \right)^2$$
 
