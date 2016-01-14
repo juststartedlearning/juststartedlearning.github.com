@@ -31,6 +31,70 @@ First, **a few new definitions.**
 
 Since we have many \\(x\\)'s now, let's give them subscripts (e.g. \\(x_1, x_2, x_3\\)) to refer to our different features.
 
+Note that we already said that the bracketed-superscripts for \\(x\\) (like \\(x^{(1)}, x^{(2)}\\), etc.) represent samples in the training set. This still holds true. We just have to get used to seeing things like \\(x_1^{(2)}\\), which is the second row (or data point in our training data) of the first feature.
+
 We also need a way to refer to the total number of features we've got .. let's go ahead and call that \\(n\\).
 
-Now that we have that out of the way, let's take a look at those equations .. starting with our hypothesis \\(h_0(x)\\):
+Now that we have that out of the way, let's take a look at those equations .. starting with our hypothesis \\(h_0(x)\\).
+
+**Before** (we had only one \\(x\\)):
+$$h_\theta(x) = \theta_0 + \theta_1 x$$
+
+**After** (we have many \\(x\\)'s):
+$$h_\theta(x) = \theta_0 + \theta_1 x_1 + \theta_2 x_2 + \text{...}$$
+
+You'll notice something going on here .. all the terms have both \\(\theta\\)'s and \\(x\\)'s .. except for that first one, the lonely looking \\(\theta_0\\). To simplify things, let's go ahead and give it an \\(x_0\\) that has a value of 1 (so that it doesn't change the equation in any way).
+
+Now, it looks like:
+
+$$h_\theta(x) = \theta_0 x_0 + \theta_1 x_1 + \theta_2 x_2 + \text{...}$$
+*(where \\(x_0=1\\))*
+
+### Matrices
+
+Let's now take the next jump .. let's lump up all of those \\(\theta_0, \theta_1, \theta_2\\), &hellip; parameters into a single vector like so:
+
+$$
+\theta =
+\begin{bmatrix}
+\theta_0 \\
+\theta_1 \\
+\theta_2 \\
+\vdots \\
+\theta_n
+\end{bmatrix}
+$$
+
+.. and similarly ..
+
+$$
+x =
+\begin{bmatrix}
+x_0 \\
+x_1 \\
+x_2 \\
+\vdots \\
+x_n
+\end{bmatrix}
+$$
+
+Those weird looking towers are known in the mathematics parlance as *matrices*. If you have no idea what those are, you can think of them as layers of numbers, not very different from your good ole' Big Mac. If you want to learn more, just check out this [video here](https://www.khanacademy.org/math/algebra2/alg-2-old-content/basic-matrix-operations-alg2/v/introduction-to-the-matrix). You may or may not remember that a matrix with just one column is known as a *vector*.
+
+So here, we're treating our \\(\theta\\) and our \\(x\\) as a single vector, as opposed to many tiny numbers with little subscripts.
+
+So now, our hypothesis equation will simply be:
+
+$$h_\theta(x) = \theta^T x$$
+
+That weird looking T on top of the \\(\theta\\) is known as the *transpose* of \\(\theta\\), or \\(\theta\\) flipped on it's side like so:
+
+$$
+\theta^T =
+\begin{bmatrix}
+\theta_0 & \theta_1 & \theta_2 & \cdots & \theta_n
+\end{bmatrix}
+$$
+
+The reason we use \\(\theta^T\\) and not \\(\theta\\) is so that the multiplication will work (if you don't know how to multiply matrices, check out [this short video](https://www.khanacademy.org/math/algebra2/alg-2-old-content/matrix-multiplication-alg2/v/matrix-multiplication-intro) for a primer).
+
+We now have a new equation for our hypothesis function! (keeping in mind that \\(x_0=1\\) or this whole business just won't work).
