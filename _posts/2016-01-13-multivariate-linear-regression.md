@@ -111,7 +111,9 @@ Next, let's take a look at our gradient descent equation.
 
 If you'll recall, the gradient descent equation in the case of a single feature looked like this:
 
-$$\theta_j := \theta_j - \alpha \frac{\partial}{\partial \theta_j} J(\theta_0, \theta_1)$$
+$$\theta_j := \theta_j - \alpha \frac{\partial}{\partial \theta_j} J(\theta)$$
+
+Substituting for \\(J(\theta)\\), that becomes:
 
 $$\theta_j := \theta_j - \alpha \frac{\partial}{\partial \theta_j} \left( \frac{1}{2m} \sum_{i=1}^m \left( h(x^{(i)}) - y^{(i)} \right)^2 \right)$$
 
@@ -147,7 +149,21 @@ $$
 \end{align}
 $$
 
-My biggest worry was about that derivative.
+Not too bad, huh?
+
+All the equations look similar except for the first one. Wait .. remember that lonely \\(x_0=1\\) we were talking about earlier? Well, turns out it's their in that first equation .. but we just didn't see it (since it's equal to 1):
+
+$$\theta_0 := \theta_0 - \alpha \frac{1}{m} \sum_{i=1}^m \left(h(x^{(i)}) - y^{(i)}\right) x_0^{(i)}$$
+
+Now let's write it in the general form:
+
+$$\theta_j := \theta_j - \alpha \frac{1}{m} \sum_{i=1}^m \left(h(x^{(i)}) - y^{(i)}\right) x_j^{(i)}$$
+
+Kill the feature subset (represented by the subscript \\(j\\), since \\(\theta\\) is a vector anyway) and we're left with:
+
+$$\theta := \theta - \alpha \frac{1}{m} \sum_{i=1}^m \left(h(x^{(i)}) - y^{(i)}\right) x^{(i)}$$
+
+I don't know about you but I'm feeling like I've had my fair share of math for now .. let's jump into some good ole' fashioned code.
 
 ## Implementing things in code
 
