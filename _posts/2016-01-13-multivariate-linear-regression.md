@@ -37,6 +37,8 @@ We also need a way to refer to the total number of features we've got .. let's g
 
 Now that we have that out of the way, let's take a look at those equations .. starting with our hypothesis \\(h_0(x)\\).
 
+#### Hypothesis function \\(h_\theta(x)\\)
+
 **Before** (we had only one \\(x\\)):
 $$h_\theta(x) = \theta_0 + \theta_1 x$$
 
@@ -50,9 +52,7 @@ Now, it looks like:
 $$h_\theta(x) = \theta_0 x_0 + \theta_1 x_1 + \theta_2 x_2 + \text{...}$$
 *(where \\(x_0=1\\))*
 
-### Matrices
-
-Let's now take the next jump .. let's lump up all of those \\(\theta_0, \theta_1, \theta_2\\), &hellip; parameters into a single vector like so:
+Let's take the next jump .. let's lump up all of those \\(\theta_0, \theta_1, \theta_2\\), &hellip; parameters into a single vector like so:
 
 $$
 \theta =
@@ -82,7 +82,7 @@ Those weird looking towers are known in the mathematics parlance as *matrices*. 
 
 So here, we're treating our \\(\theta\\) and our \\(x\\) as a single vector, as opposed to many tiny numbers with little subscripts.
 
-So now, our hypothesis equation will simply be:
+So now, **our new hypothesis equation** will simply be:
 
 $$h_\theta(x) = \theta^T x$$
 
@@ -98,3 +98,59 @@ $$
 The reason we use \\(\theta^T\\) and not \\(\theta\\) is so that the multiplication will work (if you don't know how to multiply matrices, check out [this short video](https://www.khanacademy.org/math/algebra2/alg-2-old-content/matrix-multiplication-alg2/v/matrix-multiplication-intro) for a primer).
 
 We now have a new equation for our hypothesis function! (keeping in mind that \\(x_0=1\\) or this whole business just won't work).
+
+#### Cost function \\(J(\theta)\\)
+
+Our new and improved cost function now looks like this:
+
+$$J(\theta) = \frac{1}{2m} \sum_{i=1}^m \left(\ h_\theta(x^{(i)}) - y^{(i)} \right)^2$$
+
+Next, let's take a look at our gradient descent equation.
+
+#### Gradient descent
+
+If you'll recall, the gradient descent equation in the case of a single feature looked like this:
+
+$$\theta_j := \theta_j - \alpha \frac{\partial}{\partial \theta_j} J(\theta_0, \theta_1)$$
+
+$$\theta_j := \theta_j - \alpha \frac{\partial}{\partial \theta_j} \left( \frac{1}{2m} \sum_{i=1}^m \left( h(x^{(i)}) - y^{(i)} \right)^2 \right)$$
+
+We then computed the partial derivative for each of our \\(\theta_0, \theta_1\\) individually, resulting in:
+
+$$
+\begin{align}
+
+\theta_0 & := \theta_0 - \alpha \frac{1}{m} \sum_{i=1}^m \left(h(x^{(i)}) - y^{(i)}\right) \\
+
+\theta_1 & := \theta_1 - \alpha \frac{1}{m} \sum_{i=1}^m \left(h(x^{(i)}) - y^{(i)}\right) x^{(i)}
+
+\end{align}
+$$
+
+When replacing this with multiple features, my expectation was that things would get ickier .. much ickier. In fact, I was pleasantly surprised to realize that it wasn't the case at all.
+
+A fundamental property of partial derivatives is that you only calculate the derivative with reference to the variable you're deriving with (which are our \\(\theta_0, \theta_1\\), etc. variables).
+
+Since we're only going to be computing the derivative with respect to *one* of these variables at a time, the resulting derivative looks just like the \\(\theta_1\\) term above.
+
+Namely, it'll be:
+
+$$
+\begin{align}
+
+\theta_0 & := \theta_0 - \alpha \frac{1}{m} \sum_{i=1}^m \left(h(x^{(i)}) - y^{(i)}\right) \\
+
+\theta_1 & := \theta_1 - \alpha \frac{1}{m} \sum_{i=1}^m \left(h(x^{(i)}) - y^{(i)}\right) x_1^{(i)} \\
+
+\theta_2 & := \theta_2 - \alpha \frac{1}{m} \sum_{i=1}^m \left(h(x^{(i)}) - y^{(i)}\right) x_2^{(i)}
+
+\end{align}
+$$
+
+My biggest worry was about that derivative.
+
+## Implementing things in code
+
+Alright, enough of this math business .. let's take a look at some code. I'll be using **Octave** in this example, since that's what the Machine Learning course uses (and it makes dealing with matrices, as well as all the rest of the Machine Learning stuff pretty easy).
+
+So yeah, Octave. The syntax is pretty self-explanatory, though writing it will take a bit of getting used to (at least for me anyway).
