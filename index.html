@@ -7,12 +7,12 @@ layout: default
   <ul class="post-list">
     {% for post in site.posts reversed %}
       <li>
-        <h2>
+        <h1>
           <a class="post-link" href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a>
-        </h2>
-        <!-- use post.excerpt for summary  -->
-        {{ post.content }}
-
+        </h1>
+        <div class="post-content">
+          {{ post.content }}
+        </div>
       </li>
     {% endfor %}
   </ul>

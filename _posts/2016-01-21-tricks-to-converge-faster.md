@@ -28,3 +28,9 @@ Knowing what we know now, let's normalize \\(x_1, x_2\\) to fit within that rang
 $$x_1 = \frac{\text{Size of bedroom}}{2000}$$
 
 $$x_2 = \frac{\text{Number of bedrooms}}{5}$$
+
+### Trick #2: Picking a learning rate, \\(\alpha\\)
+
+Plot # of iters vs. \\(J(\theta)\\)
+
+Run this plot for these values of \\(\alpha\\) .. 0.001, 0.003, 0.01, 0.03, 0.1, 0.3, 1
