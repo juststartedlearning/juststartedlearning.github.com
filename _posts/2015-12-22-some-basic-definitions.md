@@ -3,6 +3,7 @@ layout: post
 title:  "Some Basic definitions"
 date:   2015-12-22 20:52:10 +0400
 categories: machine-learning
+canonical: http://yaz.in/machine-learning/some-basic-definitions/
 excerpt: |
   Today, I learned a bunch of variable definitions that are used quite a bit
   when defining the kind of problem we're trying to solve with Machine Learning.
